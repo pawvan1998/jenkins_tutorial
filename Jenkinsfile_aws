@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('AWS Stage') {
             environment {
-                AWS_ACCESS_KEY_ID  = credentials ('AWS_ACCESS')
-                AWS_SECRET_ACCESS_KEY = credentials ('AWS_SECRET')
+                AWS_ACCESS_KEY_ID  = credentials('AWS_ACCESS')
+                AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET')
             }
             steps {
                 sh 'aws ec2 describe-instances --region ap-south-1'
