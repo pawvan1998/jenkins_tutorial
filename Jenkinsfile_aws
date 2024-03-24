@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('AWS Stage') {
+            environment {
+                AWS_ACCESS_KEY_ID     = 'AWS_ACCESS'
+                AWS_SECRET_ACCESS_KEY = 'AWS_SECRET'
+            }
+            steps {
+                sh 'aws ec2 describe-instances --region ap-south-1'
+            }
+        }
+    }
+}
