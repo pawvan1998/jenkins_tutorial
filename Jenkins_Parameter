@@ -12,6 +12,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
+               script {
                     echo "Biography: ${params.BIOGRAPHY}"
                     echo "Toggle: ${params.TOGGLE}"
                     echo "Choice: ${params.CHOICE}"
@@ -22,3 +23,4 @@ pipeline {
         }
     }
 
+}
