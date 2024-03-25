@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Test') {
+            steps {
+                sh 'echo "This is Jenkins Pipeline Job"'
+                // Your test steps go here
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'I will only get executed if the build succeeds'
+            echo 'Notify all the DevOps Team Members'
+            // Example AWS SNS publish command
+            // sh 'aws sns publish --sns-arn ARN_SNS --message "Jenkins Job with name ${JOB_NAME} has Succeeded with Build Number ${BUILD_NUMBER}"'
+        }
+        failure {
+            echo 'I will only get executed if the build fails'
+            echo 'Notify all the DevOps Team Members'
+            // Example AWS SNS publish command
+            // sh 'aws sns publish --sns-arn ARN_SNS --message "Jenkins Job with name ${JOB_NAME} has Failed with Build Number ${BUILD_NUMBER}"'
+        }
+        always {
+            echo 'I will always get executed :D'
+        }
+    }
+}
