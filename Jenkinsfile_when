@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    
+    environment {
+        SDLC_ENV = 'dev'
+    }
+    
+    stages {
+        stage('Example Build') {
+            steps {
+                script {
+                    echo 'Build Stage Execution inside Jenkinsfile'
+                }
+            }
+        }
+        stage('Example Deploy') {
+            when {
+                environment name: 'SDLC_ENV', value: 'dev'
+            }
+            steps {
+                script {
+                    echo 'Deploying Code'
+                }
+            }
+        }
+    }
+}
