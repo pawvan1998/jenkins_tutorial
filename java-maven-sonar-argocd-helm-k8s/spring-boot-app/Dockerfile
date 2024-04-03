@@ -5,7 +5,7 @@ FROM alpine:latest
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 
 # Install required packages using apk
-RUN apk update && apk add --no-cache openjdk11-jdk
+RUN apk update && apk add --no-cache openjdk11-jdk docker
 
 # Set Java environment variables
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk
